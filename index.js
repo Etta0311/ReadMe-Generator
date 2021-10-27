@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateRM = require("./generateMarkdown");
-let content = "";
+let content = "## Project: ";
 
 //Create an array of questions for user input
 const info = [
@@ -38,7 +38,7 @@ const info = [
     },
     {
         name: 'repo',
-        message: "What's this Project Github repo?",
+        message: "What's this Project Github repo? (Please provide the link)",
         type: 'input'
     },
     {
@@ -66,9 +66,6 @@ const info = [
         message: 'Give your license details?',
         type: 'list',
         choices: ["MIT", 'Apache license 2.0', 'Artistic license 2.0','GNU General Public License v2.0'],
-        filter(val) {
-          return val.toLowerCase();
-        },
         default: "MIT"
       }
 ];
